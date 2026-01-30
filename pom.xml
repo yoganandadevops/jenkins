@@ -6,7 +6,7 @@
     <groupId>com.example</groupId>
     <artifactId>simple-java-app</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging> <!-- JAR packaging -->
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -14,7 +14,6 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit for testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -25,7 +24,6 @@
 
     <build>
         <plugins>
-            <!-- Plugin for creating executable jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -33,12 +31,18 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.App</mainClass> <!-- Main class entry -->
+                            <mainClass>com.example.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-</project>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://13.49.226.130:8081/repository/maven-packages/</url>
+        </repository>
+    </distributionManagement>
+</project>
